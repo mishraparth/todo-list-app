@@ -6,6 +6,15 @@ from .models import Task
 from .forms import TaskForm
 from django.contrib.auth.decorators import login_required
 
+#this is temporary
+from django.http import HttpResponse
+from django.core.management import call_command
+
+def run_migrations(request):
+    call_command('migrate')
+    return HttpResponse("✅ Migrations applied successfully.")
+#-------------------------------------------------------------------temp-------------------------
+
 @login_required
 def task_list(request):
     tasks = Task.objects.filter(user=request.user)
