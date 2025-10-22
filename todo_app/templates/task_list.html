@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Your Tasks</h2>
+  <a href="{% url 'add_task' %}" class="btn btn-success mb-3">Add New Task</a>
+
+  {% for task in tasks %}
+    <div class="card mb-2">
+      <div class="card-body">
+        <h5 class="card-title">
+          {% if task.is_completed %}
+            <s>{{ task.title }}</s> ✅
+          {% else %}
+            {{ task.title }}
+          {% endif %}
+        </h5>
+        <a href="{% url 'edit_task' task.id %}" class="btn btn-sm btn-primary">Edit</a>
+        <a href="{% url 'delete_task' task.id %}" class="btn btn-sm btn-danger">Delete</a>
+        <a href="{% url 'toggle_task' task.id %}" class="btn btn-sm btn-warning">
+  {% if task.is_completed %}Mark Incomplete{% else %}Mark Complete{% endif %}
+</a>
+        <button class="btn btn-sm btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#desc{{ task.id }}">
+          ▼ Details
+        </button>
+
+        <div class="collapse mt-2" id="desc{{ task.id }}">
+          <div class="card card-body">
+            📄 <strong>Description:</strong> {{ task.description }}
+            <br>📅 <strong>Due:</strong> {{ task.due_date }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>No tasks yet. Add one!</p>
+  {% endfor %}
+</div>
+{% endblock %}

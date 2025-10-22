@@ -1,0 +1,38 @@
+body {
+  background: linear-gradient(to right, #1f1c2c, #928dab);
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+}
+
+.navbar {
+  background-color: #343a40;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.btn {
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.badge-complete {
+  background-color: #28a745;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.badge-pending {
+  background-color: #dc3545;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
