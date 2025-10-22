@@ -13,6 +13,13 @@ from django.core.management import call_command
 def run_migrations(request):
     call_command('migrate')
     return HttpResponse("✅ Migrations applied successfully.")
+
+from django.http import HttpResponse
+from django.core.management import call_command
+
+def run_collectstatic(request):
+    call_command('collectstatic', interactive=False, verbosity=0)
+    return HttpResponse("✅ Static files collected successfully.")
 #-------------------------------------------------------------------temp-------------------------
 
 @login_required
