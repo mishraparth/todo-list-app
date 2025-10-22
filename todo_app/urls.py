@@ -10,5 +10,7 @@ urlpatterns = [
     path('toggle/<int:task_id>/', views.toggle_task, name='toggle_task'),
     #this is temporary 
     path('run-migrations/', views.run_migrations),
+    path('run-collectstatic/', views.run_collectstatic),
+
     #-----------------------------------------temp------------------------------------
 ]
