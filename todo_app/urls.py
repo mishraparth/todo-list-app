@@ -8,4 +8,7 @@ urlpatterns = [
     path('delete/<int:task_id>/', views.delete_task, name='delete_task'),
     path('signup/',views.signup, name='signup'),
     path('toggle/<int:task_id>/', views.toggle_task, name='toggle_task'),
+    #this is temporary 
+    path('run-migrations/', views.run_migrations),
+    #-----------------------------------------temp------------------------------------
 ]
